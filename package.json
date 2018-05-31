@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "mocha": "^4.1.0",
-    "vscode": "^1.1.10"
+    "vscode": "^1.1.18"
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
