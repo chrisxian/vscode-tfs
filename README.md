@@ -1,16 +1,20 @@
 # TFS extension for Visual Studio Code
-**Visual Studio Code Team Foundation Server integration** _&nbsp; ― &nbsp; This is a work in progress..._
 
-[![Build Status](https://travis-ci.org/ivangabriele/vscode-tfs.svg?branch=master)](https://travis-ci.org/ivangabriele/vscode-tfs)
-[![npm version](https://badge.fury.io/js/vscode-tfs.svg)](https://badge.fury.io/js/vscode-tfs)
-[![Dependency Status](https://david-dm.org/ivangabriele/vscode-tfs.svg)](https://david-dm.org/ivangabriele/vscode-tfs)
-[![devDependency Status](https://david-dm.org/ivangabriele/vscode-tfs/dev-status.svg)](https://david-dm.org/ivangabriele/vscode-tfs#info=devDependencies)
+[![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+[![GitHub](https://img.shields.io/github/release/ivangabriele/vscode-tfs.svg?style=flat-square)](https://github.com/ivangabriele/vscode-tfs/releases)
+[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/ivangabriele.vscode-tfs.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=ivangabriele.vscode-tfs)
+[![David](https://img.shields.io/david/ivangabriele/vscode-tfs.svg?style=flat-square)](https://david-dm.org/ivangabriele/vscode-tfs?type=dev)
+[![David](https://img.shields.io/david/dev/ivangabriele/vscode-tfs.svg?style=flat-square)](https://david-dm.org/ivangabriele/vscode-tfs?type=dev)
 
+**Visual Studio Code Team Foundation Server integration**
 ---
 
 ## Important !
 
 > **You MUST have a Visual Studio with Team Foundation Server features to be able to use this extension.**
+
+> **I used TFS because my last company did but I don't use it anymore. So I, and most of this extension users, would be really happy to find some people able to contribute to this extension (and its [tfs](https://github.com/ivangabriele/tfs) dependency) :star:**<br>
+> Contact me if you're willing to help at ivan.gabriele@gmail.com :mailbox:
 
 ## Installation
 
