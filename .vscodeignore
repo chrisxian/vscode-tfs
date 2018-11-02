@@ -1,7 +1,9 @@
 .vscode/**
-typings/**
-test/**
-.gitignore
-jsconfig.json
+.vscode-test/**
+out/test/**
+out/**/*.map
+src/**
 
-doc/**
+.gitignore
+tsconfig.json
+tslint.json
