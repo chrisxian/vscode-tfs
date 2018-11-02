@@ -36,8 +36,13 @@
     ]
   },
   "scripts": {
+    "compile": "tsc -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "node ./node_modules/vscode/bin/test"
+    "test": "node ./node_modules/vscode/bin/test",
+    "preversion": "npm run compile",
+    "postversion": "git push origin HEAD && git push --tags",
+    "vscode:prepublish": "npm run compile",
+    "watch": "tsc -watch -p ./"
   },
   "dependencies": {
     "tfs": "^1.5.0"
