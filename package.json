@@ -65,7 +65,7 @@
     "foundation",
     "server",
     "microsoft"
-  ], 
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ivangabriele/vscode-tfs.git"
