@@ -1,49 +1,14 @@
 {
   "name": "vscode-tfs",
-  "main": "./lib/vscode-tfs",
-  "version": "0.6.0",
   "description": "TFS Visual Studio Code integration.",
-  "author": {
-    "name": "Ivan Gabriele",
-    "email": "ivan.gabriele@gmail.com",
-    "url": "http://www.ivangabriele.com"
-  },
+  "version": "0.6.0",
   "license": "MIT",
-  "keywords": [
-    "tfs",
-    "team",
-    "foundation",
-    "server",
-    "microsoft"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ivangabriele/vscode-tfs.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ivangabriele/vscode-tfs/issues"
-  },
-  "homepage": "https://github.com/ivangabriele/vscode-tfs#readme",
-  "readmeFilename": "README.md",
+  "main": "./lib/vscode-tfs",
+  "displayName": "TFS",
+  "publisher": "ivangabriele",
+  "icon": "res/icon.png",
   "engines": {
     "vscode": "^1.28.2"
-  },
-  "dependencies": {
-    "tfs": "^1.4.2"
-  },
-  "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-githooks": "^0.6.0",
-    "grunt-jsdoc": "^2.1.0",
-    "grunt-mocha-test": "^0.13.2",
-    "jshint-stylish": "^2.2.1",
-    "mocha": "^3.2.0",
-    "vscode": "^1.0.4"
-  },
-  "scripts": {
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "node ./node_modules/vscode/bin/test"
   },
   "activationEvents": [
     "*"
@@ -70,14 +35,49 @@
       }
     ]
   },
-  "displayName": "TFS",
-  "publisher": "ivangabriele",
-  "icon": "res/icon.png",
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "dependencies": {
+    "tfs": "^1.4.2"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-githooks": "^0.6.0",
+    "grunt-jsdoc": "^2.1.0",
+    "grunt-mocha-test": "^0.13.2",
+    "jshint-stylish": "^2.2.1",
+    "mocha": "^3.2.0",
+    "vscode": "^1.0.4"
+  },
+  "author": {
+    "name": "Ivan Gabriele",
+    "email": "ivan.gabriele@gmail.com",
+    "url": "https://www.ivangabriele.com"
+  },
   "galleryBanner": {
     "color": "#912a2a",
     "theme": "dark"
   },
   "categories": [
-    "Other"
-  ]
+    "Other",
+    "SCM Providers"
+  ],
+  "keywords": [
+    "tfs",
+    "team",
+    "foundation",
+    "server",
+    "microsoft"
+  ], 
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivangabriele/vscode-tfs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ivangabriele/vscode-tfs/issues"
+  },
+  "homepage": "https://github.com/ivangabriele/vscode-tfs#readme"
 }
