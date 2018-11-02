@@ -26,7 +26,7 @@
   "homepage": "https://github.com/ivangabriele/vscode-tfs#readme",
   "readmeFilename": "README.md",
   "engines": {
-    "vscode": "^1.9.0"
+    "vscode": "^1.28.2"
   },
   "dependencies": {
     "tfs": "^1.4.2"
