@@ -43,12 +43,6 @@
     "tfs": "^1.4.2"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-githooks": "^0.6.0",
-    "grunt-jsdoc": "^2.1.0",
-    "grunt-mocha-test": "^0.13.2",
-    "jshint-stylish": "^2.2.1",
     "mocha": "^3.2.0",
     "vscode": "^1.0.4"
   },
