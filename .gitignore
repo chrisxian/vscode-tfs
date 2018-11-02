@@ -1,9 +1,6 @@
-### Node ###
-
-# Logs
-logs
-*.log
-npm-debug.log*
-
-# Dependency directory
+!.vscode
+.vscode-test
 node_modules
+out
+
+.vsix
