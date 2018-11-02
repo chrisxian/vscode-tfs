@@ -3,7 +3,7 @@
   "description": "TFS Visual Studio Code integration.",
   "version": "0.6.0",
   "license": "MIT",
-  "main": "./lib/vscode-tfs",
+  "main": "./src/extension",
   "displayName": "TFS",
   "publisher": "ivangabriele",
   "icon": "res/icon.png",
