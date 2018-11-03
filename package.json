@@ -1,7 +1,7 @@
 {
   "name": "vscode-tfs",
   "description": "TFS Visual Studio Code integration.",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT",
   "main": "./out/extension",
   "displayName": "TFS",
