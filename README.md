@@ -2,7 +2,7 @@
 
 [![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 [![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/ivangabriele.vscode-tfs.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=ivangabriele.vscode-tfs)
-[![Travis](https://img.shields.io/travis/ivangabriele/vscode-git-tfs.svg?style=flat-square)](https://travis-ci.org/ivangabriele/vscode-git-tfs)
+[![Travis](https://img.shields.io/travis/ivangabriele/vscode-tfs.svg?style=flat-square)](https://travis-ci.org/ivangabriele/vscode-tfs)
 [![David](https://img.shields.io/david/ivangabriele/vscode-tfs.svg?style=flat-square)](https://david-dm.org/ivangabriele/vscode-tfs?type=dev)
 [![David](https://img.shields.io/david/dev/ivangabriele/vscode-tfs.svg?style=flat-square)](https://david-dm.org/ivangabriele/vscode-tfs?type=dev)
 
