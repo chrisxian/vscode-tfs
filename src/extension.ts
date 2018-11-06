@@ -1,8 +1,9 @@
-var tfsExec = require('./utils/tfsExec'),
-    utils   = require('./utils/common'),
-    vscode  = require('vscode');
+import * as vscode from 'vscode'
 
-var globalCommands = [
+import utils from './utils/common'
+import tfsExec from './utils/tfsExec'
+
+const globalCommands = [
   {
     label: 'Get',
     detail: 'Get the latest version of files for the entire workspace.',
@@ -15,7 +16,7 @@ var globalCommands = [
   }
 ];
 
-var fullCommands = globalCommands.concat([
+const fullCommands = globalCommands.concat([
   {
     label: 'Add',
     detail: 'Adds current file to TFS.',
@@ -40,26 +41,26 @@ fullCommands.sort(function (commandA, commandB) {
 
 /**
  * Show a selectable list of available commands.
- * 
+ *
  * @version 0.5.0
  */
 function tfsList() {
   var isGlobal = !utils.getCurrentFilePath(),
       commands = isGlobal ? globalCommands : fullCommands,
       promise = vscode.window.showQuickPick(commands);
-  
+
   promise.then(function(command) {
     if (!command) {
       return;
     }
-    
+
     tfsExec(command.label.toLowerCase(), command.isGlobal);
   });
 }
 
 /**
  * Extension activation
- * 
+ *
  * @version 0.5.3
  */
 exports.activate = function(context) {
@@ -68,19 +69,19 @@ exports.activate = function(context) {
     if (vscode.window.activeTextEditor.document.isDirty) {
       return;
     }
-    
+
     if (utils.getCurrentFilePath()) {
       tfsExec('checkout');
     }
   });
-  
+
   // We link disposable commands
   var disposables = [
     vscode.commands.registerCommand('vscode-tfs.get',    function() { tfsExec('get', true); }),
     vscode.commands.registerCommand('vscode-tfs.list',   tfsList)/*,
     vscode.commands.registerCommand('vscode-tfs.status', function() { tfsExec('status', true); })*/
   ];
-  
+
   context.subscriptions.concat(disposables);
 }
 
