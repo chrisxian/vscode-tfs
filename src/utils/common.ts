@@ -19,7 +19,7 @@ export default {
    * Get the current opened file path.
    */
   getCurrentFilePath: (): string => {
-    if (!vscode.window.activeTextEditor) return ''
+    if (vscode.window.activeTextEditor === undefined) return ''
     const currentFilePath = vscode.window.activeTextEditor.document.uri.toString()
     if (currentFilePath.substr(0, 8) !== 'file:///') return ''
 
