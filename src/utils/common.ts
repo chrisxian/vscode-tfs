@@ -1,63 +1,43 @@
 /* global decodeURIComponent */
 
-var vscode = require('vscode');
+import * as vscode from 'vscode'
 
 export default {
   /**
    * Check if a file exists.
-   *
-   * @module  Common Utilities
-   * @version 0.5.3
-   *
-   * @param  {String}  filePath    File path
-   * @return {Boolean}             Return TRUE if file exists
    */
-  fileExists: function(filePath) {
+  fileExists: function(filePath): boolean {
     try {
-      if (require('fs').lstatSync(filePath).isFile()) {
-        return true;
-      }
-
-      return false;
+      return require('fs').lstatSync(filePath).isFile()
     }
     catch (exception) {
-      return false;
+      return false
     }
   },
 
   /**
    * Get the current opened file path.
-   *
-   * @module  Common Utilities
-   * @version 0.5.0
-   *
-   * @return {String} File path
    */
-  getCurrentFilePath: function() {
+  getCurrentFilePath: function(): string | false {
     if (!vscode.window.activeTextEditor) {
-      return false;
+      return false
     }
 
-    var currentFilePath = vscode.window.activeTextEditor.document.uri.toString();
+    var currentFilePath = vscode.window.activeTextEditor.document.uri.toString()
 
     if (currentFilePath.substr(0, 8) !== 'file:///') {
-      return false;
+      return false
     }
 
-    currentFilePath = decodeURIComponent(currentFilePath).substr(8);
+    currentFilePath = decodeURIComponent(currentFilePath).substr(8)
 
-    return currentFilePath;
+    return currentFilePath
   },
 
   /**
    * Get the current workspace path.
-   *
-   * @module  Common Utilities
-   * @version 0.5.0
-   *
-   * @return {String} Directory path
    */
-  getCurrentWorkspacePath: function() {
-    return vscode.workspace.rootPath;
+  getCurrentWorkspacePath: function(): string {
+    return vscode.workspace.rootPath
   }
-};
+}
