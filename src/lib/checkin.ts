@@ -8,7 +8,7 @@ export default function(itemspec: string[]): void {
     .then((checkinComment: string) => {
       vscode.window.setStatusBarMessage(`TFS: Checking In...`)
 
-      if (!checkinComment) {
+      if (checkinComment.length === 0) {
         vscode.window.showWarningMessage(`TFS: Your must enter a Check In comment.`)
 
         return
