@@ -36,5 +36,10 @@
       "array-destructuring"
     ],
     "type-literal-delimiter": [false]
+  },
+  "linterOptions": {
+    "exclude": [
+      "src/test/**"
+    ]
   }
 }
