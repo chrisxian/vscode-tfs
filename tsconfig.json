@@ -8,6 +8,7 @@
     "preserveConstEnums": true,
     "rootDir": "src",
     "sourceMap": false,
+    "strictNullChecks": true,
     "target": "es6"
   }
 }
