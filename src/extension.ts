@@ -3,31 +3,38 @@ import * as vscode from 'vscode'
 import utils from './utils/common'
 import tfsExec from './utils/tfsExec'
 
-const globalCommands = [
+import { Command } from './extension.d'
+
+const globalCommands: Command[] = [
   {
+    name: 'get',
     label: 'Get',
     detail: 'Get the latest version of files for the entire workspace.',
     isGlobal: true
   },
   {
+    name: 'status',
     label: 'Status',
     detail: 'Show pending changes for the entire workspace.',
     isGlobal: true
   }
 ];
 
-const fullCommands = globalCommands.concat([
+const fullCommands: Command[] = globalCommands.concat([
   {
+    name: 'add',
     label: 'Add',
     detail: 'Adds current file to TFS.',
     isGlobal: false
   },
   {
+    name: 'checkin',
     label: 'CheckIn',
     detail: 'Adds current file to TFS.',
     isGlobal: false
   },
   {
+    name: 'undo',
     label: 'Undo',
     detail: 'Undo current file pending changes.',
     isGlobal: false
@@ -54,7 +61,7 @@ function tfsList() {
       return;
     }
 
-    tfsExec(command.label.toLowerCase(), command.isGlobal);
+    tfsExec(command.name, command.isGlobal);
   });
 }
 
