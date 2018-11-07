@@ -14,9 +14,6 @@
 
 > **You MUST have a Visual Studio with Team Foundation Server features to be able to use this extension.**
 
-> **I used TFS because my last company did but I don't use it anymore. So I, and most of this extension users, would be really happy to find some people able to contribute to this extension (and its [tfs](https://github.com/ivangabriele/tfs) dependency) :star:**<br>
-> Contact me if you're willing to help at ivan.gabriele@gmail.com :mailbox:
-
 ## Installation
 
 1. Open up VS Code
