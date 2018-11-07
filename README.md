@@ -51,7 +51,6 @@ To be able to contribute to TFS development, you need to be at ease with **Types
     cd vscode-tfs
     npm install
     npm install grunt-cli -g
-    grunt githooks
 
 The last command create a `pre-commit` hook to ensure that you don't commit anything if tests fail.
 
