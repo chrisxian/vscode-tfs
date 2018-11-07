@@ -45,7 +45,7 @@ Please report any issue or comment [here](https://github.com/ivangabriele/vscode
 
 ## Contribute
 
-To be able to contribute to TFS development, you need to be at ease with **NodeJS** language and **Git** usage.
+To be able to contribute to TFS development, you need to be at ease with **Typescript** and **Git**.
 
     git clone https://github.com/ivangabriele/vscode-tfs.git
     cd vscode-tfs
