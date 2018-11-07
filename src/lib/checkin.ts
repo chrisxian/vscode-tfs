@@ -2,30 +2,34 @@ import * as tfs from 'tfs'
 import * as vscode from 'vscode'
 
 export default function(itemspec: string[]): void {
-  var promise = vscode.window.showInputBox({
+  const promise = vscode.window.showInputBox({
     value: 'Comment...'
   })
 
-  promise.then(function(checkinComment) {
-    vscode.window.setStatusBarMessage('TFS: Checking In...')
+  vscode.window.showInputBox({
+    value: 'Comment...'
+  })
+    .then((checkinComment: string) => {
+      vscode.window.setStatusBarMessage(`TFS: Checking In...`)
 
-    if (!checkinComment) {
-      vscode.window.showWarningMessage('TFS: Your must enter a Check In comment.')
-      return
-    }
-
-    var callback = function(responseError, response) {
-      if (responseError) {
-        vscode.window.setStatusBarMessage('')
-        vscode.window.showErrorMessage('TFS: ' + responseError.error)
+      if (!checkinComment) {
+        vscode.window.showWarningMessage(`TFS: Your must enter a Check In comment.`)
 
         return
       }
 
-      vscode.window.setStatusBarMessage('TFS: ' + itemspec[0].substr(itemspec[0].lastIndexOf('/') + 1) + ' successfully checked in.')
-      vscode.window.showInformationMessage(response.message)
-    }
+      // tslint:disable-next-line:no-any
+      tfs('checkin', itemspec, { comment: checkinComment }, (err: any, res: any) => {
+        if (err) {
+          vscode.window.setStatusBarMessage(``)
+          vscode.window.showErrorMessage(`TFS: ${err.error}`)
 
-    tfs('checkin', itemspec, { comment: checkinComment }, callback)
-  })
+          return
+        }
+
+        const fileName = itemspec[0].substr(itemspec[0].lastIndexOf('/') + 1)
+        vscode.window.setStatusBarMessage(`TFS: ${fileName} successfully checked in.`)
+        vscode.window.showInformationMessage(res.message)
+      })
+    })
 }
