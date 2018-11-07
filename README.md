@@ -56,9 +56,10 @@ The last command create a `pre-commit` hook to ensure that you don't commit anyt
 
 ## Roadmap
 
-1. **Checkin multiple files**
+1. Customizable TF.exe path (in order to fix mutiple TFS versions issues)
 2. File name in status bar message (when suitable)
-3. **Exclude** command
+3. **Exclude** workspace setting
+4. **Checkin multiple files**
 
 #### Links
 
