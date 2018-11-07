@@ -4,16 +4,17 @@ import * as vscode from 'vscode'
 export default function(itemspec: string[]): void {
   vscode.window.setStatusBarMessage('TFS: Adding...')
 
-  var callback = function(responseError, response) {
-    if (responseError) {
+  // tslint:disable-next-line:no-any
+  tfs('add', itemspec, null, (err: any) => {
+    if (err) {
       vscode.window.setStatusBarMessage('')
-      vscode.window.showErrorMessage('TFS: ' + responseError.error)
+      vscode.window.showErrorMessage(`TFS: ${err.error}`)
+
       return
     }
 
-    vscode.window.setStatusBarMessage('TFS: ' + itemspec[0].substr(itemspec[0].lastIndexOf('/') + 1) + ' successfully added.')
-    vscode.window.showInformationMessage('TFS: ' + itemspec[0].substr(itemspec[0].lastIndexOf('/') + 1) + ' successfully added.')
-  }
-
-  tfs('add', itemspec, null, callback)
+    const fileName = itemspec[0].substr(itemspec[0].lastIndexOf('/') + 1)
+    vscode.window.setStatusBarMessage(`TFS: ${fileName} successfully added.`)
+    vscode.window.showInformationMessage(`TFS: ${fileName} successfully added.`)
+  })
 }
