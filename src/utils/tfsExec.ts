@@ -10,12 +10,13 @@ import { CommandName } from '../extension.d'
  */
 export default function(command: CommandName, isGlobal: boolean = false): void {
   if (!isGlobal && !utils.getCurrentFilePath()) {
-    vscode.window.showErrorMessage('TFS: Either there is no current file opened or your current file has not been saved.')
+    vscode.window.showErrorMessage(
+      `TFS: Either there is no current file opened or your current file has not been saved.`)
 
     return
   }
 
-  var itemspec = isGlobal ? utils.getCurrentWorkspacePath() : utils.getCurrentFilePath()
+  const itemspec = isGlobal ? utils.getCurrentWorkspacePath() : utils.getCurrentFilePath()
 
   tfs[command]([itemspec])
 }
