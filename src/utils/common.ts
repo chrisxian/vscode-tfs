@@ -1,4 +1,4 @@
-/* global decodeURIComponent */
+import * as fs from 'fs'
 
 import * as vscode from 'vscode'
 
@@ -6,9 +6,9 @@ export default {
   /**
    * Check if a file exists.
    */
-  fileExists: function(filePath): boolean {
+  fileExists: (filePath: string): boolean => {
     try {
-      return require('fs').lstatSync(filePath).isFile()
+      return fs.lstatSync(filePath).isFile()
     }
     catch (exception) {
       return false
@@ -18,26 +18,17 @@ export default {
   /**
    * Get the current opened file path.
    */
-  getCurrentFilePath: function(): string {
-    if (!vscode.window.activeTextEditor) {
-      return ''
-    }
+  getCurrentFilePath: (): string => {
+    if (!vscode.window.activeTextEditor) return ''
+    const currentFilePath = vscode.window.activeTextEditor.document.uri.toString()
+    if (currentFilePath.substr(0, 8) !== 'file:///') return ''
 
-    var currentFilePath = vscode.window.activeTextEditor.document.uri.toString()
-
-    if (currentFilePath.substr(0, 8) !== 'file:///') {
-      return ''
-    }
-
-    currentFilePath = decodeURIComponent(currentFilePath).substr(8)
-
-    return currentFilePath
+    // Remove the protocol part of the uri ("file:///")
+    return decodeURIComponent(currentFilePath).substr(8)
   },
 
   /**
    * Get the current workspace path.
    */
-  getCurrentWorkspacePath: function(): string {
-    return vscode.workspace.rootPath
-  }
+  getCurrentWorkspacePath: (): string => vscode.workspace.rootPath
 }
