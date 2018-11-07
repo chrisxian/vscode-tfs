@@ -5,47 +5,41 @@ import * as vscode from 'vscode'
  * Get the list of pending changes for the entire workspace.
  */
 export default function(itemspec: string[]): void {
-  vscode.window.setStatusBarMessage('TFS: Listing pending changes...')
+  vscode.window.setStatusBarMessage(`TFS: Listing pending changes...`)
 
-  var callback = function(responseError, response) {
-    if (responseError) {
+  // tslint:disable-next-line:no-any
+  tfs('status', itemspec, { recursive: true }, (err: any, res: any) => {
+    if (err) {
       vscode.window.setStatusBarMessage(null)
-      vscode.window.showErrorMessage('TFS: ' + responseError.error)
-      return
-    }
-
-    vscode.window.setStatusBarMessage('TFS: Pending changes successfully listed.')
-
-    if (!response.hasPendingChanges) {
-      vscode.window.showInformationMessage('TFS: ' + response.message)
+      vscode.window.showErrorMessage(`TFS: ${err.error}`)
 
       return
     }
 
-    var changes = []
+    vscode.window.setStatusBarMessage(`TFS: Pending changes successfully listed.`)
 
-    if (response.status.includedChanges.length) {
+    if (!res.hasPendingChanges) {
+      vscode.window.showInformationMessage(`TFS: ${err.error}`)
+
+      return
+    }
+
+    const changes: string[] = []
+
+    if (res.status.includedChanges.length) {
       changes.push('Included changes :')
-      response.status.includedChanges.forEach(function(change) {
-        changes.push('› ' + change.fileName + ' [' + change.action + ']')
-      })
+      res.status.includedChanges
+        // tslint:disable-next-line:no-any
+        .forEach((change: any) => changes.push(`› ${change.fileName} [${change.action}]`))
     }
 
-    if (response.status.detectedChanges.length) {
+    if (res.status.detectedChanges.length) {
       changes.push('Detected changes :')
-      response.status.detectedChanges.forEach(function(change) {
-        changes.push('› ' + change.fileName + ' [' + change.action + ']')
-      })
+      res.status.detectedChanges
+        // tslint:disable-next-line:no-any
+        .forEach((change: any) => changes.push(`› ${change.fileName} [${change.action}]`))
     }
 
-    var promise = vscode.window.showQuickPick(changes)
-
-    promise.then(function() {
-
-    })
-  }
-
-  tfs('status', itemspec, {
-    recursive: true
-  }, callback)
+    vscode.window.showQuickPick(changes)
+  })
 }
