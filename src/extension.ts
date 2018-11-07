@@ -61,13 +61,9 @@ function tfsList(): void {
 export function activate(context: vscode.ExtensionContext): void {
   // We automatically checkout (for edit) files when they're modified
   vscode.workspace.onDidChangeTextDocument(() => {
-    if (vscode.window.activeTextEditor.document.isDirty) {
-      return
-    }
+    if (vscode.window.activeTextEditor === undefined || vscode.window.activeTextEditor.document.isDirty) return
 
-    if (utils.getCurrentFilePath()) {
-      tfsExec('checkout')
-    }
+    if (utils.getCurrentFilePath() !== '') tfsExec('checkout')
   })
 
   // We link disposable commands
@@ -79,5 +75,8 @@ export function activate(context: vscode.ExtensionContext): void {
   context.subscriptions.concat(disposables)
 }
 
+/**
+ * Extension deactivation
+ */
 // tslint:disable-next-line:no-empty
 export function deactivate(): void {}
