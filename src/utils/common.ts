@@ -18,15 +18,15 @@ export default {
   /**
    * Get the current opened file path.
    */
-  getCurrentFilePath: function(): string | false {
+  getCurrentFilePath: function(): string {
     if (!vscode.window.activeTextEditor) {
-      return false
+      return ''
     }
 
     var currentFilePath = vscode.window.activeTextEditor.document.uri.toString()
 
     if (currentFilePath.substr(0, 8) !== 'file:///') {
-      return false
+      return ''
     }
 
     currentFilePath = decodeURIComponent(currentFilePath).substr(8)
