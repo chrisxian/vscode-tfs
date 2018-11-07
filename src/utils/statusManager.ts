@@ -1,79 +1,42 @@
-var fs       = require('fs'),
-    utils    = require('../utils/common');
-    vscode   = require('vscode');
+import * as fs from 'fs'
+import * as vscode from 'vscode'
 
-var vscodeTfsFilePath = vscode.workspace.rootPath + '/.vscodetfs';
+import utils from './common'
 
-/**
- * @type {Object}
- */
-var statusManager = {
-  /**
-   * @todo Comment this function
-   * 
-   * @module  Utilities StatusManager
-   * @version 0.5.3
-   * 
-   * @param {String} filePath Workspace file path
-   */
-  exclude: function(filePath) {
+var vscodeTfsFilePath = vscode.workspace.rootPath + '/.vscodetfs'
+
+const StatusManager = {
+  exclude: (filePath: string): void => {
     // We create a .vscodetfs if it doesn't exist
-    var vscodeTfsFile = vscode.workspace.rootPath + '/.vscodetfs';
+    var vscodeTfsFile = vscode.workspace.rootPath + '/.vscodetfs'
     if (!utils.fileExists(vscodeTfsFilePath)) {
-      fs.writeFile(vscodeTfsFilePath, JSON.stringify({
-        excludedFiles: []
-      }, null, 2), 'utf8');
+      fs.writeFileSync(vscodeTfsFilePath, JSON.stringify({ excludedFiles: [] }, null, 2), { encoding: 'utf8' })
     }
-    
-    var excludedFiles = statusManager.list();
-    excludedFiles.push(filePath);
-    statusManager.save(excludedFiles);
+
+    var excludedFiles = StatusManager.list()
+    excludedFiles.push(filePath)
+    StatusManager.save(excludedFiles)
   },
-  
-  /**
-   * @todo Comment this function
-   * 
-   * @module  Utilities StatusManager
-   * @version 0.5.3
-   * 
-   * @param {String} filePath Workspace file path
-   */
-  include: function(filePath) {
-    var excludedFiles = statusManager.list();
-    excludedFiles.splice(excludedFiles.indexOf(filePath), 1);
-    statusManager.save(excludedFiles);
+
+  include(filePath: string): void {
+    var excludedFiles = StatusManager.list()
+    excludedFiles.splice(excludedFiles.indexOf(filePath), 1)
+    StatusManager.save(excludedFiles)
   },
-  
-  /**
-   * @todo Comment this function
-   * 
-   * @module  Utilities StatusManager
-   * @version 0.5.3
-   * 
-   * @returns {Array} List of workspace file paths
-   */
-  list: function() {
+
+  list: (): any[] => {
     if (!utils.fileExists(vscodeTfsFilePath)) {
-      return [];
-    };
-    
-    var content = JSON.parse(fs.readFileSync(vscodeTfsFilePath, 'utf8'));
-    return content.excludedFiles || [];
+      return []
+    }
+
+    var content = JSON.parse(fs.readFileSync(vscodeTfsFilePath, 'utf8'))
+
+    return content.excludedFiles || []
   },
-  
-  /**
-   * @todo Comment this function
-   * 
-   * @module  Utilities StatusManager
-   * @version 0.5.3
-   * 
-   * @param {Array} List of workspace file paths
-   */
-  save: function(excludedFiles) {
-    fs.writeFile(vscodeTfsFilePath, JSON.stringify({
-      excludedFiles: excludedFiles
-    }, null, 2), 'utf8');
-  }
+
+  save: (excludedFiles): void => {
+    fs.writeFileSync(vscodeTfsFilePath, JSON.stringify({ excludedFiles }, null, 2), 'utf8')
+  },
 }
 
-module.exports = statusManager;
+export default StatusManager
