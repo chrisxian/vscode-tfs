@@ -18,7 +18,7 @@ const globalCommands: Command[] = [
     detail: 'Show pending changes for the entire workspace.',
     isGlobal: true
   }
-];
+]
 
 const fullCommands: Command[] = globalCommands.concat([
   {
@@ -39,57 +39,45 @@ const fullCommands: Command[] = globalCommands.concat([
     detail: 'Undo current file pending changes.',
     isGlobal: false
   }
-]);
+])
 
 // We sort the commands array by their label property
-fullCommands.sort(function (commandA, commandB) {
-  return (commandA.label < commandB.label) ? -1 : 1;
-});
+fullCommands.sort((commandA: Command, commandB: Command) => (commandA.label < commandB.label) ? -1 : 1)
 
 /**
  * Show a selectable list of available commands.
- *
- * @version 0.5.0
  */
-function tfsList() {
-  var isGlobal = !utils.getCurrentFilePath(),
-      commands = isGlobal ? globalCommands : fullCommands,
-      promise = vscode.window.showQuickPick(commands);
+function tfsList(): void {
+  const isGlobal = utils.getCurrentFilePath().length === 0
+  const commands = isGlobal ? globalCommands : fullCommands
 
-  promise.then(function(command) {
-    if (!command) {
-      return;
-    }
-
-    tfsExec(command.name, command.isGlobal);
-  });
+  vscode.window.showQuickPick(commands)
+    .then((command: Command) => tfsExec(command.name, command.isGlobal))
 }
 
 /**
  * Extension activation
- *
- * @version 0.5.3
  */
-exports.activate = function(context) {
+export function activate(context: vscode.ExtensionContext): void {
   // We automatically checkout (for edit) files when they're modified
-  vscode.workspace.onDidChangeTextDocument(function() {
+  vscode.workspace.onDidChangeTextDocument(() => {
     if (vscode.window.activeTextEditor.document.isDirty) {
-      return;
+      return
     }
 
     if (utils.getCurrentFilePath()) {
-      tfsExec('checkout');
+      tfsExec('checkout')
     }
-  });
+  })
 
   // We link disposable commands
-  var disposables = [
-    vscode.commands.registerCommand('vscode-tfs.get',    function() { tfsExec('get', true); }),
-    vscode.commands.registerCommand('vscode-tfs.list',   tfsList)/*,
-    vscode.commands.registerCommand('vscode-tfs.status', function() { tfsExec('status', true); })*/
-  ];
+  const disposables = [
+    vscode.commands.registerCommand('vscode-tfs.get', () => tfsExec('get', true)),
+    vscode.commands.registerCommand('vscode-tfs.list', tfsList)
+  ]
 
-  context.subscriptions.concat(disposables);
+  context.subscriptions.concat(disposables)
 }
 
-exports.deactivate = function() {};
+// tslint:disable-next-line:no-empty
+export function deactivate(): void {}
