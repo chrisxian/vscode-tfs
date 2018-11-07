@@ -2,10 +2,6 @@ import * as tfs from 'tfs'
 import * as vscode from 'vscode'
 
 export default function(itemspec: string[]): void {
-  const promise = vscode.window.showInputBox({
-    value: 'Comment...'
-  })
-
   vscode.window.showInputBox({
     value: 'Comment...'
   })
