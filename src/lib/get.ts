@@ -7,26 +7,23 @@ import * as vscode from 'vscode'
 export default function(itemspec: string[]): void {
   vscode.window.setStatusBarMessage('TFS: Getting latest version...')
 
-  var callback = function(responseError, response) {
-    if (responseError) {
+  // tslint:disable-next-line:no-any
+  tfs('get', itemspec, { recursive: true }, (err: any, res: any) => {
+    if (err) {
       vscode.window.setStatusBarMessage(null)
-      vscode.window.showErrorMessage('TFS: ' + responseError.error)
+      vscode.window.showErrorMessage(`TFS: ${err.error}`)
 
       return
     }
 
-    vscode.window.setStatusBarMessage('TFS: Get Latest Version successful.')
+    vscode.window.setStatusBarMessage(`TFS: Get Latest Version successful.`)
 
-    if (!response.hasUpdated) {
-      vscode.window.showInformationMessage('TFS: ' + response.message)
+    if (!res.hasUpdated) {
+      vscode.window.showInformationMessage(`TFS: ${res.message}`)
 
       return
     }
 
-    vscode.window.showInformationMessage('TFS: Workspace files updated to the latest version.')
-  }
-
-  tfs('get', itemspec, {
-    recursive: true
-  }, callback)
+    vscode.window.showInformationMessage(`TFS: Workspace files updated to the latest version.`)
+  })
 }
