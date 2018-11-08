@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="Layer_1"
+   viewBox="0 0 56.430868 56.424"
+   width="600"
+   height="600"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="icon.svg"
+   inkscape:export-filename="C:\Users\ivang\Workspace\vscode-tfs\res\icon.png"
+   inkscape:export-xdpi="38.400002"
+   inkscape:export-ydpi="38.400002">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     id="namedview7"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1"
+     inkscape:cx="322.91959"
+     inkscape:cy="405.38576"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" />
+  <style
+     id="style3">.st0{fill:#0179cb}</style>
+  <path
+     class="st0"
+     d="m 22.797427,23.131617 -9.324758,7.266882 -4.0675244,-2.025719 0,-18.9389052 4.0514464,-2.041803 9.260451,7.2829582 14.662378,-14.67846279 9.646303,3.84244959 0,30.0482352 -9.59807,3.90675 -14.630226,-14.662385 z m 14.292604,2.556271 0,-13.585204 -8.778134,6.800639 8.778134,6.784565 z m -23.295819,-2.443724 4.614148,-4.196144 -4.614148,-4.598064 0,8.794208 z"
+     id="path5"
+     inkscape:connector-curvature="0"
+     style="fill:#0179cb" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:16.92926025px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0179cb;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="15.390362"
+     y="56.229046"
+     id="text4139"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4141"
+       x="15.390362"
+       y="56.229046"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.92926025px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#0179cb;fill-opacity:1">TFS</tspan></text>
+</svg>
