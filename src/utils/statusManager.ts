@@ -3,10 +3,12 @@ import * as vscode from 'vscode'
 
 import utils from './common'
 
-const vscodeTfsFilePath = `${vscode.workspace.workspaceFolders[0].uri}/.vscodetfs`
-
 const statusManager = {
   exclude: (filePath: string): void => {
+    if (vscode.workspace.workspaceFolders === undefined) return
+
+    const vscodeTfsFilePath = `${vscode.workspace.workspaceFolders[0].uri.fsPath}/.vscodetfs`
+
     // We create a .vscodetfs if it doesn't exist
     if (!utils.fileExists(vscodeTfsFilePath)) {
       fs.writeFileSync(vscodeTfsFilePath, JSON.stringify({ excludedFiles: [] }, null, 2), { encoding: 'utf8' })
