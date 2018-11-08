@@ -3,7 +3,7 @@ import * as vscode from 'vscode'
 
 import utils from './common'
 
-const vscodeTfsFilePath = `${vscode.workspace.rootPath}/.vscodetfs`
+const vscodeTfsFilePath = `${vscode.workspace.workspaceFolders[0].uri}/.vscodetfs`
 
 const statusManager = {
   exclude: (filePath: string): void => {
@@ -28,7 +28,7 @@ const statusManager = {
 
     const content = JSON.parse(fs.readFileSync(vscodeTfsFilePath, 'utf8'))
 
-    return content.excludedFiles || []
+    return content.excludedFiles !== undefined ? content.excludedFiles : []
   },
 
   save: (excludedFiles: string[]): void => {
