@@ -10,7 +10,7 @@ export default function(itemspec: string[]): void {
   // tslint:disable-next-line:no-any
   tfs('status', itemspec, { recursive: true }, (err: any, res: any) => {
     if (err) {
-      vscode.window.setStatusBarMessage(null)
+      vscode.window.setStatusBarMessage('')
       vscode.window.showErrorMessage(`TFS: ${err.error}`)
 
       return
