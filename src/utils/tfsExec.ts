@@ -9,7 +9,7 @@ import { CommandName } from '../extension.d'
  * Execute a TFS command.
  */
 export default function(command: CommandName, isGlobal: boolean = false): void {
-  if (!isGlobal && !utils.getCurrentFilePath()) {
+  if (!isGlobal && utils.getCurrentFilePath() === '') {
     vscode.window.showErrorMessage(
       `TFS: Either there is no current file opened or your current file has not been saved.`)
 
