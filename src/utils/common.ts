@@ -30,5 +30,8 @@ export default {
   /**
    * Get the current workspace path.
    */
-  getCurrentWorkspacePath: (): string => vscode.workspace.rootPath
+  getCurrentWorkspacePath: (): string =>
+    vscode.workspace.workspaceFolders !== undefined
+      ? vscode.workspace.workspaceFolders[0].uri.fsPath
+      : ''
 }
