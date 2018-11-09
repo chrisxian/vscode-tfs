@@ -1,4 +1,4 @@
-import tfs from 'tfs'
+import * as tfs from 'tfs'
 import * as vscode from 'vscode'
 
 /**
