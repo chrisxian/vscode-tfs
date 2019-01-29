@@ -10,6 +10,7 @@
     "newline-per-chained-call": [false],
     "no-console": [true, "log"],
     "no-default-export": [false],
+    "no-default-import": [false],
     "no-implicit-dependencies": [true, "dev"],
     "no-inferrable-types": [false],
     "no-magic-numbers": [false],
